@@ -6,7 +6,7 @@ export const _ = {};
 
 export async function glob(pattern: string, options?: any): Promise<string[]> {
   return new Promise((resolve, reject) => {
-    lib_glob(pattern, options, (err: Error, files: string[]) => {
+    lib_glob(pattern.replace(/\\/g, '/'), options, (err: Error, files: string[]) => {
       if (err) {
         reject(err);
       } else {
